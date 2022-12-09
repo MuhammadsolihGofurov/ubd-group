@@ -53,9 +53,10 @@ const ContactsContainer = styled.div`
         h3{
             margin-top: 0;
             text-align: start;
+            font-size: 48px;
 
             span {
-                font-size: 160px;
+                font-size: 130px;
                 top: -.02em;
                 left: -.7em;
             }
