@@ -39,7 +39,7 @@ const Menu = ({ setIsOpen }) => {
             <Contact>
                 <Socials>
                     {
-                        data[0].links?.map((link) => (
+                        data[0]?.links?.map((link) => (
                             <div key={link.id}>
                                 <Image src={link.logo} alt="Logo" width={40} height={40} />
                             </div>
