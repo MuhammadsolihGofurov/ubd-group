@@ -3,7 +3,6 @@ import styled from "styled-components"
 const Headline = () => (
     <HeadlineContainer>
         <ImageContainer>
-            {/* <Image src={bg} width={1442} height={503} alt='Headline text'></Image> */}
         </ImageContainer>
         <MainContainer>
             <h1>UBD поможет вам с подбором спанбонда</h1>

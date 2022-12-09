@@ -1,11 +1,18 @@
 import Image from "next/image";
 
-import Furniture from '../../images/Furniture.png'
+import { useEffect, useState } from "react";
+
+import { getData } from "../../utils/getData";
 
 import styled from "styled-components";
 
-const CategoryTabs = ({ data }) => {
-    const { sliders } = data;
+const CategoryTabs = () => {
+    const [sliders, setSliders] = useState();
+
+    useEffect(() => {
+        getData('sliders').then((res) => setSliders(res));
+    }, []);
+
     return (
         <Container>
             <div>

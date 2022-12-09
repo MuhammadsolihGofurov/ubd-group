@@ -1,7 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link'
 
-import data from '../../data.json';
+import { useEffect, useState } from 'react';
+
+import { getData } from '../../utils/getData';
 
 import Logo from '../../icons/ubd-logo.svg'
 import CloseLogo from '../../icons/ph_x.svg';
@@ -10,7 +12,16 @@ import Group from '../../images/Group.png';
 import styled from "styled-components"
 
 const Menu = ({ setIsOpen }) => {
-    const { phone, links } = data.contacts[0];
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        getData('contacts').then((data) => setData(data));
+    }, [])
+
+    useEffect(() => {
+        console.log(data[0]?.phone)
+    }, [data])
+
     return (
         <MenuContainer>
             <Header>
@@ -28,14 +39,14 @@ const Menu = ({ setIsOpen }) => {
             <Contact>
                 <Socials>
                     {
-                        links.map((link) => (
+                        data[0].links?.map((link) => (
                             <div key={link.id}>
                                 <Image src={link.logo} alt="Logo" width={40} height={40} />
                             </div>
                         ))
                     }
                 </Socials>
-                <div>{phone}</div>
+                <div>{data[0]?.phone}</div>
             </Contact>
             <Background>
                 <Image src={Group} alt="" className='background' />

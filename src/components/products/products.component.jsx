@@ -1,22 +1,21 @@
-import styled from "styled-components";
+import { useEffect, useState } from "react";
+
+import { getData } from '../../utils/getData';
+
 import Product from "../product/product.component";
-import data from '../../data.json';
-import Image from "next/image";
+
 import Vector from '../../icons/Vector.svg';
 import Vector1 from '../../icons/Vector1.svg';
 
-// export const getStaticProps = async () => {
-//     const res = await fetch(`/`);
-//     const products = await res.json();
-
-//     return{
-//         props: {
-//             Assortment: products,
-//         }
-//     }
-// }
+import styled from "styled-components";
 
 const Products = () => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        getData('products').then((data) => setData(data));
+    }, [])
+
     return (
         <Container>
             <ImageContainer>
@@ -26,7 +25,7 @@ const Products = () => {
             <h2>Продукция</h2>
             <ProductList>
                 {
-                    data?.products.map((product) => (
+                    data?.map((product) => (
                         <Product product={product} key={product.id} />
                     ))
                 }

@@ -1,11 +1,20 @@
-import data from '../../data.json';
+import { useEffect, useState } from 'react';
+
+import { getData } from '../../utils/getData';
 
 import MapLogo from '../../icons/map.svg'
 
 import styled from "styled-components";
 
 const CompanyContacts = () => {
-    const { address, links, mail, phone } = data?.contacts[0];
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        getData('contacts').then((res) => setData(res));
+    }, []);
+
+    const { address, mail, phone } = data[0];
+
     return (
         <ContactsContainer>
             <div>

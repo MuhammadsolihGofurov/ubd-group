@@ -1,7 +1,5 @@
 import Head from 'next/head';
 
-import data from '../data.json';
-
 import CategoryTabs from '../components/category-tabs/category-tabs.component';
 import Contacts from '../components/contacts/contacts.component';
 import Footer from '../components/footer/footer.component';
@@ -23,9 +21,9 @@ const Home = () => {
       <Headline />
       <SpanbondDescription />
       <Products />
-      <CategoryTabs data={data} />
+      <CategoryTabs />
       <Contacts />
-      <Footer data={data} />
+      <Footer />
     </div>
   )
 }

@@ -1,11 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import { useEffect, useState } from "react";
+
+import { getData } from "../../utils/getData";
+
 import styled from "styled-components";
 
-const Footer = ({ data }) => {
-    const { links } = data.contacts[0];
-    console.log(links)
+const Footer = () => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        getData('contacts').then((res) => setData(res));
+    }, []);
 
     return (
         <Main>
@@ -21,7 +28,7 @@ const Footer = ({ data }) => {
 
                 <Socials>
                     {
-                        links.map((link) => (
+                        data[0]?.links?.map((link) => (
                             <Link key={link.id} href={link.link}>
                                 <Image src={link.logo} alt="" width={24} height={24} />
                             </Link>
