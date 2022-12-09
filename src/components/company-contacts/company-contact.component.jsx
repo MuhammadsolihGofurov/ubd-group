@@ -13,22 +13,20 @@ const CompanyContacts = () => {
         getData('contacts').then((res) => setData(res));
     }, []);
 
-    const { address, mail, phone } = data[0];
-
     return (
         <ContactsContainer>
             <div>
                 <h4>Телефон:</h4>
-                <p>{phone}</p>
+                <p>{data[0]?.phone}</p>
             </div>
             <div>
                 <h4>Почта:</h4>
-                <p>{mail}</p>
+                <p>{data[0]?.mail}</p>
 
             </div>
             <div>
                 <h4>Адрес:</h4>
-                <p>{address}</p>
+                <p>{data[0]?.address}</p>
                 <p><MapLogo />Показать на карте</p>
             </div>
         </ContactsContainer>
