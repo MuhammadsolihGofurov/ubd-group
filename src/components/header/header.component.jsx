@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 import Menu from '../menu/menu.component'
+
+import { getData } from '../../utils/getData'
 
 import Logo from '../../icons/ubd-logo.svg'
 import MenuLogo from '../../icons/tabler_menu-2.svg'
@@ -12,6 +14,11 @@ import styled from 'styled-components'
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        getData('contacts').then((data) => setData(data));
+    }, [])
 
     return (
         <HeaderContainer>
@@ -20,7 +27,7 @@ export const Header = () => {
                 <MenuLogo onClick={() => { setIsOpen(true) }} />
             </MenuButton>
             {
-                isOpen ? <Menu setIsOpen={setIsOpen} /> : null
+                isOpen ? <Menu setIsOpen={setIsOpen} data={data} /> : null
             }
             <Categories>
                 <li><Link href='/'>Главная</Link></li>

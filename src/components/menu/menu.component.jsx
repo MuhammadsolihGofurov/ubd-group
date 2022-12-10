@@ -11,17 +11,7 @@ import Group from '../../images/Group.png';
 
 import styled from "styled-components"
 
-const Menu = ({ setIsOpen }) => {
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        getData('contacts').then((data) => setData(data));
-    }, [])
-
-    useEffect(() => {
-        console.log(data[0]?.phone)
-    }, [data])
-
+const Menu = ({ setIsOpen, data }) => {
     return (
         <MenuContainer>
             <Header>
