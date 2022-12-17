@@ -18,12 +18,12 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Headline />
+      {/* <Headline />
       <SpanbondDescription />
       <Products />
       <CategoryTabs />
       <Contacts />
-      <Footer />
+      <Footer /> */}
     </div>
   )
 }
