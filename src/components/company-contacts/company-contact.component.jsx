@@ -10,23 +10,23 @@ const CompanyContacts = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        getData('contacts').then((res) => setData(res));
+        getData('settings').then(data => setData(data));
     }, []);
 
     return (
         <ContactsContainer>
             <div>
                 <h4>Телефон:</h4>
-                <p>{data[0]?.phone}</p>
+                <p>{data?.phone}</p>
             </div>
             <div>
                 <h4>Почта:</h4>
-                <p>{data[0]?.mail}</p>
+                <p>{data?.email}</p>
 
             </div>
             <div>
                 <h4>Адрес:</h4>
-                <p>{data[0]?.address}</p>
+                <p>{data?.address}</p>
                 <p><MapLogo />Показать на карте</p>
             </div>
         </ContactsContainer>

@@ -1,42 +1,43 @@
 import Image from 'next/image';
 import Link from 'next/link'
 
-import { useEffect, useState } from 'react';
-
-import { getData } from '../../utils/getData';
-
 import Logo from '../../icons/ubd-logo.svg'
 import CloseLogo from '../../icons/ph_x.svg';
 import Group from '../../images/Group.png';
 
 import styled from "styled-components"
 
-const Menu = ({ setIsOpen, data }) => {
+const Menu = ({ setIsOpen, data, menu }) => {
     return (
         <MenuContainer>
             <Header>
                 <div></div>
                 <Logo />
-                <CloseLogo onClick={() => { setIsOpen(false) }} />
+                <CloseLogo onClick={() => { setIsOpen(false) }} style={{ cursor: 'pointer' }} />
             </Header>
             <Categories>
-                <li><Link href='/'>Главная</Link></li>
-                <li><Link href='/'>Продукция</Link></li>
-                <li><Link href='/'>Фотогалерея</Link></li>
-                <li><Link href='/'>Контакты</Link></li>
+                {
+                    menu?.map((item) => (
+                        <li key={item.id}>
+                            <Link href={item.url}>{item.title}</Link>
+                        </li>
+                    ))
+                }
                 <li><Link href="/"><span>+</span> Оставить заявку</Link></li>
             </Categories>
             <Contact>
                 <Socials>
-                    {
-                        data[0]?.links?.map((link) => (
-                            <div key={link.id}>
-                                <Image src={link.logo} alt="Logo" width={40} height={40} />
-                            </div>
-                        ))
-                    }
+                    <Link href={data.facebook}>
+                        <Image src={'/icons/facebook.png'} alt="Telegram Logo" width={40} height={40} />
+                    </Link>
+                    <Link href={data.instagram}>
+                        <Image src={'/icons/instagram.png'} alt="Telegram Logo" width={40} height={40} />
+                    </Link>
+                    <Link href={data.telegram}>
+                        <Image src={'/icons/telegram.png'} alt="Telegram Logo" width={40} height={40} />
+                    </Link>
                 </Socials>
-                <div>{data[0]?.phone}</div>
+                <div>{data?.phone}</div>
             </Contact>
             <Background>
                 <Image src={Group} alt="" className='background' />

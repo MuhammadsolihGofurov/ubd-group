@@ -13,7 +13,7 @@ const Products = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        getData('products').then((data) => setData(data));
+        getData('static-texts/products').then(data => setData(data.data));
     }, [])
 
     return (
@@ -25,8 +25,8 @@ const Products = () => {
             <h2>Продукция</h2>
             <ProductList>
                 {
-                    data?.map((product) => (
-                        <Product product={product} key={product.id} />
+                    data?.map((product, index) => (
+                        <Product product={product} key={product.name} />
                     ))
                 }
             </ProductList>
@@ -59,6 +59,7 @@ const ImageContainer = styled.div`
 
     @media screen and (min-width: 769px) {
         top: -40%;
+        right: 0;
 
         svg:nth-of-type(1){
             display: none;
@@ -66,6 +67,7 @@ const ImageContainer = styled.div`
 
         svg:nth-of-type(2){
             display: flex;
+            width: 400px;
         }
     }
 `

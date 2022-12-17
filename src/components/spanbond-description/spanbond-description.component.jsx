@@ -1,16 +1,21 @@
-import Image from "next/image";
-import styled from "styled-components";
+import { useEffect, useState } from "react";
+
+import { getData } from "../../utils/getData";
 
 import Arrow from '../../icons/material-symbols_arrow-outward.svg';
 
+import styled from "styled-components";
+
+
 const SpanbondDescription = () => {
+    const [data, setData] = useState()
+    useEffect(() => {
+        getData('pages/1').then(data => setData(data.data))
+    }, [])
     return (
         <SpanbondContainer>
-            <h3>Что такое спанбонд</h3>
-            <Description>
-                <p>Спанбонд (англ. spunbond) — название технологии производства нетканого материала из расплава полимера фильерным способом. В профессиональной области так называют и сам материал, который производят по описанной технологии.</p>
-                <p>Наиболее часто для производства «спанбонда» используется полипропилен, поскольку он позволяет получать наиболее плотное распределение волокон в холсте и обеспечивает высокую выработку волокон в перерасчёте на килограмм сырья.</p>
-                <p>Толщина спанбонда определяется его назначением и способом производства, так как от толщины зависит его воздухопроницаемость, жёсткость, теплоизоляционные свойства.</p>
+            <h3>{data?.name}</h3>
+            <Description dangerouslySetInnerHTML={{ __html: data?.body }}>
             </Description>
             <Button><Arrow /></Button>
         </SpanbondContainer>

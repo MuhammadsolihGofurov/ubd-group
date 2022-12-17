@@ -1,12 +1,19 @@
+import Arrow from '../../icons/material-symbols_arrow-outward.svg';
+
 import styled from "styled-components";
 
-const ContactForm = () => (
-    <ContactFormContainer>
-        <Input type="text" placeholder="Ваше имя" />
-        <Input type="text" placeholder="Ваш E-mail" />
-        <TextArea name="" id="" cols="30" rows="10" placeholder="Ваше сообщение"></TextArea>
-    </ContactFormContainer>
-)
+const ContactForm = () => {
+    return (
+        <ContactFormContainer>
+            <Input type="text" placeholder="Ваше имя" />
+            <Input type="text" placeholder="Ваш E-mail" />
+            <TextArea name="" id="" cols="30" rows="10" placeholder="Ваше сообщение"></TextArea>
+            <Button>
+                <button><Arrow /></button>
+            </Button>
+        </ContactFormContainer>
+    )
+}
 
 export default ContactForm;
 
@@ -17,6 +24,7 @@ const ContactFormContainer = styled.form`
     margin-bottom: 80px;
     grid-row: 2/3;
     grid-column: 1/2;
+    position: relative;
 
     @media screen and (min-width: 768px){
         width: 80%;
@@ -38,4 +46,35 @@ const TextArea = styled.textarea`
     font-size: 16px;
     font-weight: 500;
     border-radius: 8px;
+`
+
+const Button = styled.div`
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+
+    button{
+        width: fit-content;
+        background-color: #FB4A7B;
+        border: none;
+        width: 48px;
+        height: 48px;
+        border-radius: 800px;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+
+        svg {
+            position: absolute;
+            top: 13px;
+            left: 13px;
+            scale: 1;
+        }
+
+        svg * {
+            fill: #FFFFFF;
+        }
+    }
 `

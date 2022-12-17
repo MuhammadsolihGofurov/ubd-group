@@ -1,7 +1,5 @@
 export const getData = async (url) => {
-  const data = await fetch(
-    `https://my-json-server.typicode.com/Isomukhammad/ubd-group/${url}`
-  );
+  const data = await fetch(`http://api.ubdgroup.uz/api/v2/${url}`);
   const res = await data.json();
   return res;
 };

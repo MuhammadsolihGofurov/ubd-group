@@ -8,10 +8,16 @@ import { getData } from "../../utils/getData";
 import styled from "styled-components";
 
 const Footer = () => {
-    const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [data, setData] = useState();
+    const [menu, setMenu] = useState()
 
     useEffect(() => {
-        getData('contacts').then((res) => setData(res));
+        getData('menus/2').then(data => setMenu(data.data.menuItems));
+        getData('settings').then((data) => {
+            setData(data);
+            setIsLoading(false);
+        });
     }, []);
 
     return (
@@ -19,21 +25,28 @@ const Footer = () => {
             <FooterContainer >
                 <hr />
                 <Pages>
-                    <Link href='/'>Главная</Link>
-                    <Link href='/'>Фотогалерея</Link>
-                    <Link href='/'>Продукция</Link>
-                    <Link href='/'>Контакты</Link>
+                    {
+                        menu?.map((item) => (
+                            <Link href={item.url} key={item.id}>{item.title}</Link>
+                        ))
+                    }
                     <Link href='/'>Оставить заявку</Link>
                 </Pages>
 
                 <Socials>
-                    {
-                        data[0]?.links?.map((link) => (
-                            <Link key={link.id} href={link.link}>
-                                <Image src={link.logo} alt="" width={24} height={24} />
+                    {isLoading ? null : (
+                        <>
+                            <Link href={data.facebook}>
+                                <Image src={'/icons/facebook-1.png'} alt="Telegram Logo" width={24} height={24} />
                             </Link>
-                        ))
-                    }
+                            <Link href={data.instagram}>
+                                <Image src={'/icons/instagram-1.png'} alt="Telegram Logo" width={24} height={24} />
+                            </Link>
+                            <Link href={data.telegram}>
+                                <Image src={'/icons/telegram-1.png'} alt="Telegram Logo" width={24} height={24} />
+                            </Link>
+                        </>
+                    )}
                 </Socials>
                 <Dev>Разработка- INWEB</Dev>
             </FooterContainer>

@@ -1,16 +1,28 @@
-import styled from "styled-components"
+import { useEffect, useState } from "react";
 
-const Headline = () => (
-    <HeadlineContainer>
-        <ImageContainer>
-        </ImageContainer>
-        <MainContainer>
-            <h1>UBD поможет вам с подбором спанбонда</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita ex doloribus natus pariatur ea architecto dolor fuga aliqua.</p>
-            <Button>Узнать подробности</Button>
-        </MainContainer>
-    </HeadlineContainer >
-)
+import styled from "styled-components"
+import { getData } from "../../utils/getData";
+
+const Headline = () => {
+    const [data, setData] = useState();
+
+    useEffect(() => {
+        getData('banners?type=home_slide').then((data) => setData(data.data[0]));
+    }, [])
+
+    return (
+        <HeadlineContainer>
+            <ImageContainer>
+            </ImageContainer>
+            <MainContainer>
+                <h1>{data?.name}</h1>
+                <p>{data?.description}</p>
+                <Button>{data?.button_text}</Button>
+            </MainContainer>
+        </HeadlineContainer >
+    )
+}
+
 
 export default Headline;
 

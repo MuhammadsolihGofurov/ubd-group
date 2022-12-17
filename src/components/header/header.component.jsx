@@ -15,25 +15,30 @@ import styled from 'styled-components'
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [data, setData] = useState([]);
+    const [menu, setMenu] = useState();
 
     useEffect(() => {
-        getData('contacts').then((data) => setData(data));
+        getData('settings').then((data) => setData(data));
+        getData('menus/2').then(data => setMenu(data.data.menuItems));
     }, [])
 
     return (
         <HeaderContainer>
             <Logo />
             <MenuButton>
-                <MenuLogo onClick={() => { setIsOpen(true) }} />
+                <MenuLogo onClick={() => { setIsOpen(true) }} style={{ cursor: 'pointer' }} />
             </MenuButton>
             {
-                isOpen ? <Menu setIsOpen={setIsOpen} data={data} /> : null
+                isOpen ? <Menu setIsOpen={setIsOpen} data={data} menu={menu} /> : null
             }
             <Categories>
-                <li><Link href='/'>Главная</Link></li>
-                <li><Link href='/'>Продукция</Link></li>
-                <li><Link href='/'>Фотогалерея</Link></li>
-                <li><Link href='/'>Контакты</Link></li>
+                {
+                    menu?.map((item) => (
+                        <li key={item.id}>
+                            <Link href={item.url}>{item.title}</Link>
+                        </li>
+                    ))
+                }
                 <li><Link href="/"><PlusLogo>+</PlusLogo> Оставить заявку</Link></li>
             </Categories>
         </HeaderContainer>
@@ -48,10 +53,6 @@ const HeaderContainer = styled.header`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
-    /* @media screen and (min-width: 769px) {
-        background-color: black;        
-    } */
 `
 
 const MenuButton = styled.div`

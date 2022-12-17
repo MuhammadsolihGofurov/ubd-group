@@ -1,40 +1,44 @@
 import Image from "next/image";
-
 import { useEffect, useState } from "react";
 
 import { getData } from "../../utils/getData";
 
+import VectorSliders from '../../../public/icons/Vector-Sliders.svg';
+
 import styled from "styled-components";
 
 const CategoryTabs = () => {
-    const [sliders, setSliders] = useState();
+    const [data, setData] = useState();
 
     useEffect(() => {
-        getData('sliders').then((res) => setSliders(res));
+        getData('categories').then((data) => setData(data.data));
     }, []);
 
     return (
         <Container>
-            <div>
+            <ImageContainer>
+                <VectorSliders />
+            </ImageContainer>
+            <SlidersContainer>
                 {
-                    sliders?.map((slider) => (
-                        <Sliders key={slider.id}>
+                    data?.map((item) => (
+                        <Sliders key={item.id}>
                             <Image
-                                src={slider.img}
+                                src={item.img}
                                 alt=""
                                 width="0"
                                 height="0"
                                 sizes="100vw" style={{ width: '100%', height: 'auto' }}
                             />
 
-                            <SlideInfo color={slider.id}>
-                                <h2>{slider.title}</h2>
-                                <p>{slider.description}</p>
+                            <SlideInfo color={item.id}>
+                                <h2>{item.name}</h2>
+                                <p>{item.description}</p>
                             </SlideInfo>
                         </Sliders>
                     ))
                 }
-            </div>
+            </SlidersContainer>
         </Container>
     )
 }
@@ -42,17 +46,38 @@ const CategoryTabs = () => {
 export default CategoryTabs;
 
 const Container = styled.div`
+    position: relative;
+`
+
+const ImageContainer = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+
+    @media screen and (min-width: 769px){
+        display: flex;
+    }
+`
+
+const SlidersContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
-    padding: 0 34px;
     margin-bottom: -24px;
+    position: relative;
 
     img {
         border-radius: 12px;
     }
 
     @media screen and (min-width: 769px){
+        margin: auto;   
+        gap: 100px;
+        margin-bottom: -40px;
+    }
+
+    @media screen and (min-width: 1200px){
         width: 60%;
         margin: auto;   
         gap: 100px;
@@ -60,12 +85,15 @@ const Container = styled.div`
     }
 `
 
+
 const Sliders = styled.div`
     position: relative;
+    margin: 0 34px;
     margin-bottom: 24px;
 
     @media screen and (min-width: 769px){
         margin-bottom: 40px;
+        position: relative;
     }
 `
 
@@ -74,7 +102,7 @@ const SlideInfo = styled.div`
     bottom: 0;
     margin: 24px;
     z-index: 1;
-    color: ${(color) => color.color !== 1 ? '#FFFFFF' : '#242424'};
+    color: ${(color) => color.color !== 2 ? '#FFFFFF' : '#242424'};
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -85,7 +113,7 @@ const SlideInfo = styled.div`
         background: rgba(242, 242, 242, 0.2);
         backdrop-filter: blur(8px);
         border-radius: 8px;
-        max-width: 50%;
+        max-width: 60%;
 
         h2{
             font-size: 40px;
@@ -95,5 +123,9 @@ const SlideInfo = styled.div`
         p{
             font-weight: 600;
         }
+    }
+
+    @media screen and (min-width: 1400px){
+        width: 50%;
     }
 `
