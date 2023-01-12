@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 
 import { getData } from '../../utils/getData';
 
-import MapLogo from '../../icons/map.svg'
-
 import styled from "styled-components";
 
 const CompanyContacts = () => {
@@ -27,7 +25,7 @@ const CompanyContacts = () => {
             <div>
                 <h4>Адрес:</h4>
                 <p>{data?.address}</p>
-                <p><MapLogo />Показать на карте</p>
+                <p>Показать на карте</p>
             </div>
         </ContactsContainer>
     )
@@ -42,7 +40,6 @@ const ContactsContainer = styled.div`
     margin: 102px 0 80px 0;
     grid-column: 2/3;
     grid-row: 1/2;
-    color: #242424;
 
     div {
         display: flex;
