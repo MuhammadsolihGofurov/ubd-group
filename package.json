@@ -17,8 +17,5 @@
     "react-dom": "18.2.0",
     "sass": "^1.56.1",
     "styled-components": "^5.3.6"
-  },
-  "devDependencies": {
-    "@svgr/webpack": "^6.5.1"
   }
 }
