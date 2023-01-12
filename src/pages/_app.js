@@ -1,13 +1,15 @@
-import Head from "next/head";
-import Header from "../components/header/header.component";
-import "../styles/globals.css";
+import Sprites from "../utils/sprites";
+
+//styles
+import "../styles/globals.scss";
+import MainLayout from "../layouts/Main";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div>
-      <Header />
+    <MainLayout>
+      <Sprites />
       <Component {...pageProps} />
-    </div>
+    </MainLayout>
   );
 }
 
