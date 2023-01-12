@@ -1,5 +1,3 @@
-import Arrow from '../../icons/material-symbols_arrow-outward.svg';
-
 import styled from "styled-components";
 
 const ContactForm = () => {
@@ -9,7 +7,7 @@ const ContactForm = () => {
             <Input type="text" placeholder="Ваш E-mail" />
             <TextArea name="" id="" cols="30" rows="10" placeholder="Ваше сообщение"></TextArea>
             <Button>
-                <button><Arrow /></button>
+                <button></button>
             </Button>
         </ContactFormContainer>
     )
