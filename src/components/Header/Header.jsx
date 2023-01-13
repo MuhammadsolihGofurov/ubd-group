@@ -40,7 +40,7 @@ export const Header = () => {
                     <use xlinkHref='#menu'></use>
                 </svg>
             </div>
-            {/* <div className={styles.links}>
+            <div className={styles.links}>
                 {
                     data.menu?.map((item) => (
                         <li key={item.id}>
@@ -48,7 +48,18 @@ export const Header = () => {
                         </li>
                     ))
                 }
-            </div> */}
+                <Link href='/' className={styles.request}>
+                    <svg
+                        viewBox='0 0 24 24'
+                        width={28}
+                        height={28}
+                        fill="none"
+                    >
+                        <use xlinkHref='#plus'></use>
+                    </svg>
+                    Оставить заявку
+                </Link>
+            </div>
         </div>
     )
 }
