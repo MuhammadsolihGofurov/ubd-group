@@ -1,17 +1,12 @@
 import Link from "next/link";
-import Image from "next/image";
 
-import { useEffect, useState } from "react";
-
-import { getData } from "../../utils/getData";
+import { useState } from "react";
 
 import styled from "styled-components";
 import styles from './Footer.module.scss';
 
 const Footer = () => {
     const [isLoading, setIsLoading] = useState(true);
-    const [data, setData] = useState();
-    const [menu, setMenu] = useState()
 
     return (
         <div className={styles.container}>
