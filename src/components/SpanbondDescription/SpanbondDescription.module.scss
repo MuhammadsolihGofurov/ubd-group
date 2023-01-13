@@ -33,16 +33,18 @@
     align-items: center;
     padding: 24px;
 
+    &:hover {
+      p {
+        display: flex;
+      }
+    }
+
     p {
       display: none;
       position: absolute;
       width: 40%;
       height: 100%;
       animation: rotateText 10s infinite;
-
-      &.rotate {
-        display: flex;
-      }
 
       span {
         position: absolute;
@@ -77,7 +79,7 @@
     opacity: 0;
   }
 
-  20% {
+  5% {
     opacity: 1;
   }
 

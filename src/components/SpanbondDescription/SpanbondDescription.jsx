@@ -18,13 +18,8 @@ const SpanbondDescription = () => {
                     Толщина спанбонда определяется его назначением и способом производства, так как от толщины зависит его воздухопроницаемость, жёсткость, теплоизоляционные свойства.
                 </p>
             </div>
-            <button
-                onMouseEnter={() => setIsActive(true)}
-                onMouseLeave={() => setIsActive(false)}
-            >
-                <p
-                    className={`${isActive ? styles.rotate : ''}`}
-                >
+            <button>
+                <p>
                     {
                         text.split("").map((char, index) => (
                             <span style={{ transform: `rotate(${index * 12}deg)` }} key={index}>{char}</span>
