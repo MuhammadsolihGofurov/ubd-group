@@ -41,12 +41,42 @@
 
   .links {
     display: none;
+    flex-direction: row;
+    align-items: center;
+
+    .request {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 24px;
+      border: 1px solid #242424;
+      border-radius: 500px;
+
+      svg {
+        fill: #242424;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      width: 873px;
+      font-family: "Inter", sans-serif;
+      font-weight: 600;
+      line-height: 19px;
+      list-style: none;
+      justify-content: space-between;
+    }
   }
 
   .menuButton {
     svg {
       stroke: #232323;
       scale: 0.8;
+    }
+
+    @media screen and (min-width: 1024px) {
+      display: none;
     }
   }
 }
