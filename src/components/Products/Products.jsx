@@ -1,11 +1,7 @@
 import data from '../../../db.json';
 
-import Product from "../product/product.component";
+import styles from './Products.module.scss';
 
-import styled from "styled-components";
-import Image from 'next/image';
-
-import styles from './Products.module.scss'
 const Products = () => {
     return (
         <div className={styles.container}>
