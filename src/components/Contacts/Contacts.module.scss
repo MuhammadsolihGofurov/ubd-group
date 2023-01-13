@@ -79,6 +79,21 @@
       grid-column: 1/2;
       position: relative;
 
+      @media screen and (min-width: 769px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 80px;
+        margin: 0;
+
+        div {
+          align-items: flex-start;
+
+          h4 {
+            margin-top: 0;
+          }
+        }
+      }
+
       input {
         border: 1px solid #e0e0e0;
         padding: 12px 16px;
@@ -125,10 +140,6 @@
             fill: #ffffff;
           }
         }
-      }
-
-      @media screen and (min-width: 768px) {
-        width: 80%;
       }
     }
   }
