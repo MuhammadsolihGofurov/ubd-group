@@ -29,7 +29,7 @@ export const Header = () => {
             <Menu setIsOpen={setIsOpen} data={data} menu={data.menu} isOpen={isOpen} />
             <div
                 className={styles.menuButton}
-                onClick={() => setIsOpen(true)}
+                onClick={() => setIsOpen(!isOpen)}
             >
                 <svg
                     viewBox='0 0 24 24'
