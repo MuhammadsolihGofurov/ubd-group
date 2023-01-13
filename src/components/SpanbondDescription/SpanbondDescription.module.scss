@@ -1,3 +1,5 @@
+@import "/src/styles/variables.scss";
+
 .container {
   display: flex;
   flex-direction: column;
@@ -31,6 +33,27 @@
     align-items: center;
     padding: 24px;
 
+    p {
+      display: none;
+      position: absolute;
+      width: 40%;
+      height: 100%;
+      animation: rotateText 10s infinite;
+
+      &.rotate {
+        display: flex;
+      }
+
+      span {
+        position: absolute;
+        top: -20px;
+        left: 19px;
+        font-size: 14px;
+        transform-origin: 0 60px;
+        color: $pink-main;
+      }
+    }
+
     svg {
       fill: white;
     }
@@ -45,5 +68,20 @@
     .description {
       width: 50%;
     }
+  }
+}
+
+@keyframes rotateText {
+  0% {
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(270deg);
   }
 }

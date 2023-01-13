@@ -1,5 +1,9 @@
+import { useState } from 'react';
 import styles from './SpanbondDescription.module.scss'
 const SpanbondDescription = () => {
+    const [text, setText] = useState('Узнать подробнее');
+    const [isActive, setIsActive] = useState(false);
+
     return (
         <div className={styles.container}>
             <h3>Что такое спанбонд?</h3>
@@ -14,7 +18,19 @@ const SpanbondDescription = () => {
                     Толщина спанбонда определяется его назначением и способом производства, так как от толщины зависит его воздухопроницаемость, жёсткость, теплоизоляционные свойства.
                 </p>
             </div>
-            <button>
+            <button
+                onMouseEnter={() => setIsActive(true)}
+                onMouseLeave={() => setIsActive(false)}
+            >
+                <p
+                    className={`${isActive ? styles.rotate : ''}`}
+                >
+                    {
+                        text.split("").map((char, index) => (
+                            <span style={{ transform: `rotate(${index * 12}deg)` }} key={index}>{char}</span>
+                        ))
+                    }
+                </p>
                 <svg
                     viewBox='0 0 24 24'
                     width={32}
