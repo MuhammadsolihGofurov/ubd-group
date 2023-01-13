@@ -42,15 +42,17 @@
     p {
       display: none;
       position: absolute;
-      width: 40%;
+      width: 41%;
       height: 100%;
       animation: rotateText 10s infinite;
 
       span {
+        font-family: "Inter", sans-serif;
         position: absolute;
         top: -20px;
         left: 19px;
         font-size: 14px;
+        font-weight: 500;
         transform-origin: 0 60px;
         color: $pink-main;
       }
