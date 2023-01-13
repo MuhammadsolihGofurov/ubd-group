@@ -193,13 +193,14 @@
     z-index: -2;
     right: 0;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1025px) {
       background-image: none;
       content: url("/images/Ellipse 15.svg");
-      scale: 2.5;
+      top: 30em;
+      scale: 2;
       width: 100%;
       height: 100%;
-      top: 25em;
+      // bottom: -100em;
     }
   }
 }
