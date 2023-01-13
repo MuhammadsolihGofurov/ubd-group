@@ -21,7 +21,7 @@ const CategoryTabs = () => {
                                 alt=""
                             />
 
-                            <div className={styles.info} color={item.id} style={{ color: item.id === 1 ? "black" : null }}>
+                            <div className={styles.info} color={item.id} style={item.id === 1 ? { color: "black" } : null}>
                                 <h2>{item.title}</h2>
                                 <p>{item.description}</p>
                             </div>

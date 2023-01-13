@@ -63,13 +63,15 @@
     }
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1025px) {
     h3 {
       text-align: center;
       width: 100%;
+      font-size: 32px;
     }
 
     .description {
+      font-size: 20px;
       width: 50%;
     }
   }

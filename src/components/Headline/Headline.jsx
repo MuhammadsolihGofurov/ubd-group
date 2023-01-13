@@ -4,7 +4,8 @@ const Headline = () => {
     return (
         <div className={styles.container}>
             <div className={styles.animation}>
-                <svg styles={{ background: "rgb(255, 255, 255)" }} preserveAspectRatio="xMidYMid" fill="#F826FF">
+                <svg styles={{ background: "rgb(255, 255, 255)" }} preserveAspectRatio="xMidYMid" fill="#F826FF"
+                    width={1920}>
                     <defs>
                         <linearGradient id="A" x1="0" x2="1" y1="0" y2="0">
                             <stop stop-color="#f0f" offset="0" />
@@ -28,7 +29,7 @@ const Headline = () => {
             </div>
             <div className={styles.description}>
                 <h1>UBD поможет вам с подбором спанбонда</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Спанбонд – это современный, экологически чистый материал на основе волокон полипропилена</p>
                 <button>Узнать подробнее</button>
             </div>
         </div>
