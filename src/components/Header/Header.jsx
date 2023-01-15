@@ -8,12 +8,19 @@ import data from '../../../db.json';
 import Menu from '../Menu/Menu'
 
 import styles from './Header.module.scss';
+import { useRouter } from 'next/router';
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { route } = useRouter();
+
     return (
-        <div className={styles.container}>
-            <div className={styles.logo}>
+        <div className={`
+            ${styles.container}
+            ${route === '/aboutus' ? styles.aboutus : ''}
+            ${route === '/products/[product]' ? styles.product : ''}
+        `}>
+            <Link href='/' className={styles.logo}>
                 <Image
                     src={'/images/company logo.png'}
                     alt='Company logo'
@@ -25,7 +32,7 @@ export const Header = () => {
                     <p>UBD GROUP</p>
                     <p>Спонбонд в Узбекистане</p>
                 </div>
-            </div>
+            </Link>
             <Menu setIsOpen={setIsOpen} data={data} menu={data.menu} isOpen={isOpen} />
             <div
                 className={styles.menuButton}

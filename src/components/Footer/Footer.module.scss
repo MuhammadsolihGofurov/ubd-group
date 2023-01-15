@@ -1,5 +1,6 @@
 .container {
   background-color: transparent;
+  padding: 0 34px;
 
   @media screen and (min-width: 768px) {
     width: 100%;
@@ -74,5 +75,13 @@
         fill: #bdbdbd;
       }
     }
+  }
+
+  .dev {
+    text-align: end;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: #fb4a7b;
   }
 }

@@ -43,7 +43,7 @@ const Footer = () => {
                         <use xlinkHref="#telegram"></use>
                     </svg>
                 </div>
-                <Dev>Разработка- INWEB</Dev>
+                <Link href="https://inweb.uz/" className={styles.dev}>Разработка- INWEB</Link>
             </div>
         </div>
     )

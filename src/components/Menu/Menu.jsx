@@ -79,7 +79,7 @@ const Menu = ({ isOpen, setIsOpen, data, menu }) => {
                 </div>
                 <div className={styles.phoneNumber}>+998 90 123 45 67</div>
             </div>
-            <Background>
+            <div className={styles.background}>
                 <Image
                     src={'/images/Group.png'}
                     alt=""
@@ -88,49 +88,9 @@ const Menu = ({ isOpen, setIsOpen, data, menu }) => {
                     height={20}
                     className='background'
                 />
-            </Background>
+            </div>
         </div>
     )
 }
 
 export default Menu;
-
-const Categories = styled.ul`
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 50%;
-    align-items: center;
-    font-weight: 600;
-
-    li:nth-of-type(5){
-        font-weight: 600;
-        cursor: pointer;
-        color: #FB4A7B;
-        padding: 0 24px;
-        border: 1px solid #FB4A7B;
-        border-radius: 500px;
-        
-        a{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 17px;
-
-            span {
-                font-weight: 300;
-                font-size: 3em;
-            }
-        }
-    }
-`
-
-const Background = styled.div`
-    img {
-        position: absolute;
-        z-index: -1;
-        bottom: 0%;
-        right: 0;
-    }
-`

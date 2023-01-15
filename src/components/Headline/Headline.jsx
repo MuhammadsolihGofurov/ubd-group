@@ -4,12 +4,11 @@ const Headline = () => {
     return (
         <div className={styles.container}>
             <div className={styles.animation}>
-                <svg styles={{ background: "rgb(255, 255, 255)" }} preserveAspectRatio="xMidYMid" fill="#F826FF"
-                    width={1920}>
+                <svg>
                     <defs>
                         <linearGradient id="A" x1="0" x2="1" y1="0" y2="0">
-                            <stop stop-color="#f0f" offset="0" />
-                            <stop stop-color="#0ff" offset="1" />
+                            <stop stopColor="#f0f" offset="0" />
+                            <stop stopColor="#0ff" offset="1" />
                         </linearGradient>
                     </defs>
                     <g fill="url(#A)">

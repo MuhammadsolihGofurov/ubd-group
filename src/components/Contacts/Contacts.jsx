@@ -21,8 +21,10 @@ const Contacts = () => (
                 </div>
             </div>
             <form>
-                <input type="text" placeholder="Ваше имя" />
-                <input type="text" placeholder="Ваш E-mail" />
+                <div className={styles.inputs}>
+                    <input type="text" placeholder="Ваше имя" />
+                    <input type="text" placeholder="Ваш E-mail" />
+                </div>
                 <textarea name="" id="" cols="30" rows="10" placeholder="Ваше сообщение"></textarea>
                 <div className={styles.button}>
                     <button>

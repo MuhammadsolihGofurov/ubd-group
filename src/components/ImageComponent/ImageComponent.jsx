@@ -5,7 +5,7 @@ import styles from './ImageComponent.module.scss';
 const ImageComponent = ({ src, alt }) => (
     <Image
         src={src}
-        alt={alt}
+        alt={alt ? alt : ''}
         placeholder="blurDataURL"
         sizes="100vw"
         width={0}

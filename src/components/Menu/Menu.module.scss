@@ -1,6 +1,7 @@
 @import "/src/styles/variables.scss";
 
 .container {
+  color: #242424;
   padding: 24px 34px;
   top: 0;
   left: -100%;
@@ -30,6 +31,7 @@
 
     svg {
       fill: #bdbdbd;
+      cursor: pointer;
     }
   }
 
@@ -94,6 +96,17 @@
   .phoneNumber {
     font-family: "Open Sans", sans-serif;
     font-size: 18px;
+  }
+
+  .background {
+    img {
+      position: absolute;
+      z-index: -1;
+      width: 80%;
+      height: 35%;
+      bottom: 0;
+      right: 0;
+    }
   }
 }
 
