@@ -10,27 +10,7 @@ import styles from './Products.module.scss'
 import Footer from '../../components/Footer/Footer';
 
 const ProductPage = () => {
-    const [height, setHeight] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
-
-    const handleScroll = () => {
-        const position = window.pageYOffset;
-        setHeight(position);
-    };
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll, { passive: true });
-
-        if (height >= 300) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "scrolls";
-        }
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    })
 
     return (
         <>
