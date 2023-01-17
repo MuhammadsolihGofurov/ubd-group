@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    background-color: white;
+    gap: 120px;
+    padding-bottom: 5em;
+  }
+
+  svg {
+    -webkit-filter: drop-shadow(4px 8px 40px #24242440);
+    filter: drop-shadow(4px 8px 40px #24242440);
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .container {
+    svg {
+      -webkit-filter: drop-shadow(4px 8px 40px #24242450);
+      filter: drop-shadow(4px 8px 40px #24242414);
+    }
+  }
+}

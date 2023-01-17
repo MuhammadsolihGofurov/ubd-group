@@ -39,7 +39,6 @@ const Contacts = () => (
                 </div>
             </form>
         </div>
-        <div className={styles.eclipse} />
     </div>
 )
 

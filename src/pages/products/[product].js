@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 
 import ImageComponent from '../../components/ImageComponent/ImageComponent';
@@ -7,9 +7,31 @@ import ProductDescription from '../../components/ProductDescription/ProductDescr
 import ProductsMenu from '../../components/ProductsMenu/ProductsMenu';
 
 import styles from './Products.module.scss'
+import Footer from '../../components/Footer/Footer';
 
 const ProductPage = () => {
+    const [height, setHeight] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
+
+    const handleScroll = () => {
+        const position = window.pageYOffset;
+        setHeight(position);
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        if (height >= 300) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "scrolls";
+        }
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    })
+
     return (
         <>
             <Head>
@@ -24,71 +46,62 @@ const ProductPage = () => {
                 </div>
 
                 <div className={styles.content}>
-                    <button
-                        className={styles.categoriesButton}
-                        onClick={() => setIsOpen(!isOpen)}
-                    >
-                        <h3>Категории</h3>
-                        <svg
-                            viewBox='0 0 24 24'
-                            width={24}
-                            height={24}
-                            stroke="#242424"
-                            strokeWidth="0.3"
+                    <div className={styles.contentColumn1}>
+                        <button
+                            className={styles.categoriesButton}
+                            onClick={() => setIsOpen(!isOpen)}
                         >
-                            <use xlinkHref='#options'></use>
-                        </svg>
-                    </button>
-                    <div className={styles.categories}>
-                        <ul>
-                            <li className={styles.active}>Простыни на кушетки</li>
-                            <li>Медицинские халаты</li>
-                            <li>Медицинские маски</li>
-                            <li>Бахилы</li>
-                            <li>Шапочки</li>
-                        </ul>
+                            <h3>Категории</h3>
+                            <svg
+                                viewBox='0 0 24 24'
+                                width={24}
+                                height={24}
+                                stroke="#242424"
+                                strokeWidth="0.3"
+                            >
+                                <use xlinkHref='#options'></use>
+                            </svg>
+                        </button>
+                        <ProductDescription />
+                        <div className={styles.imageColumns}>
+                            <div className={styles.column1}>
+                                <ImageComponent src="/images/Furniture.png" />
+                                <ImageComponent src="/images/Furniture.png" />
+                                <ImageComponent src="/images/Furniture.png" />
+                                <ImageComponent src="/images/Furniture.png" />
+                            </div>
+                            <div className={styles.column2}>
+                                <ImageComponent src="/images/Furniture.png" />
+                                <ImageComponent src="/images/Furniture.png" />
+                                <ImageComponent src="/images/Furniture.png" />
+                                <ImageComponent src="/images/Furniture.png" />
+                                <ImageComponent src="/images/Furniture.png" />
+                            </div>
+                            <div className={styles.column3}>
+                                <ImageComponent src="/images/Furniture.png" />
+                                <ImageComponent src="/images/Furniture.png" />
+                                <ImageComponent src="/images/Furniture.png" />
+                                <ImageComponent src="/images/Furniture.png" />
+                                <ImageComponent src="/images/Furniture.png" />
+                                <ImageComponent src="/images/Furniture.png" />
+                            </div>
+                        </div>
+                        <Footer show={true} />
                     </div>
-                    <ProductDescription />
-                    <div className={styles.charasteristics}>
-                        <div>
-                            <p>Плотность (гр/м²)</p>
-                            <strong>15-60</strong>
+
+                    <div className={styles.contentColumn2}>
+                        <div className={styles.categories}>
+                            <ul>
+                                <li className={styles.active}>Простыни на кушетки</li>
+                                <li>Медицинские халаты</li>
+                                <li>Медицинские маски</li>
+                                <li>Бахилы</li>
+                                <li>Шапочки</li>
+                            </ul>
                         </div>
-                        <hr />
-                        <div>
-                            <p>Цвет</p>
-                            <strong>Голубой, натуральный, зеленый</strong>
-                        </div>
-                        <hr />
-                        <div>
-                            <p>Ширина</p>
-                            <strong>2.4м</strong>
-                        </div>
+                        <OrderForm />
+                        <div className={styles.columnBackground}></div>
                     </div>
-                    <div className={styles.imageColumns}>
-                        <div className={styles.column1}>
-                            <ImageComponent src="/images/Furniture.png" />
-                            <ImageComponent src="/images/Furniture.png" />
-                            <ImageComponent src="/images/Furniture.png" />
-                            <ImageComponent src="/images/Furniture.png" />
-                        </div>
-                        <div className={styles.column2}>
-                            <ImageComponent src="/images/Furniture.png" />
-                            <ImageComponent src="/images/Furniture.png" />
-                            <ImageComponent src="/images/Furniture.png" />
-                            <ImageComponent src="/images/Furniture.png" />
-                            <ImageComponent src="/images/Furniture.png" />
-                        </div>
-                        <div className={styles.column3}>
-                            <ImageComponent src="/images/Furniture.png" />
-                            <ImageComponent src="/images/Furniture.png" />
-                            <ImageComponent src="/images/Furniture.png" />
-                            <ImageComponent src="/images/Furniture.png" />
-                            <ImageComponent src="/images/Furniture.png" />
-                            <ImageComponent src="/images/Furniture.png" />
-                        </div>
-                    </div>
-                    <OrderForm />
                 </div>
 
                 <ProductsMenu isOpen={isOpen} setIsOpen={setIsOpen} />

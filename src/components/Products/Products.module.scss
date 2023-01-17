@@ -7,7 +7,8 @@
   justify-content: center;
   gap: 24px;
   position: relative;
-  height: 100vh;
+  z-index: 1;
+  padding: 0 34px;
 
   h2 {
     margin-bottom: 80px;
@@ -57,7 +58,6 @@
     .products {
       padding: 0 200px;
       row-gap: 80px;
-      grid-column-gap: 160px;
     }
   }
 }

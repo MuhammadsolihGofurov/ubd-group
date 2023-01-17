@@ -3,12 +3,11 @@
 .container {
   position: relative;
   color: white;
-  margin: 0 -34px;
-  padding: 0 -34px;
   height: 100vh;
-  min-height: 600px;
   display: flex;
   width: 100%;
+  z-index: 2;
+  background-color: white;
 
   @media screen and (min-width: 1500px) {
     min-height: 750px;
@@ -17,14 +16,19 @@
   .animation {
     position: relative;
     // top: 35%;
-    scale: 1.5;
+    // scale: 1.5;
     z-index: -1;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
 
     svg {
       position: absolute;
-      width: 768px;
-      height: 600px;
-      top: 20%;
+      width: 100%;
+      height: 100%;
+      top: 40%;
+      scale: 1.6;
+      left: -30%;
 
       @media screen and (min-width: 481px) {
       }
@@ -34,14 +38,17 @@
       }
 
       @media screen and (min-width: 1025px) {
+        width: 1920px;
         top: 300px;
-        scale: 1.2;
+        scale: 1.8;
+        left: 15%;
       }
 
       @media screen and (min-width: 1500px) {
-        top: 35%;
-        width: 1920px;
-        scale: 1.7;
+        top: 75%;
+        // width: 1920px;
+        scale: 2.5;
+        left: 23%;
       }
 
       @media screen and (min-width: 1921px) {

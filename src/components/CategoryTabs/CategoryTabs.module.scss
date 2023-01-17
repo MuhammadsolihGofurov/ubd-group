@@ -1,6 +1,7 @@
 .container {
   position: relative;
   color: #ffffff;
+  padding: 0 34px;
 
   .slides {
     display: flex;
@@ -13,6 +14,7 @@
       position: relative;
       // display: flex;
       // flex-direction: column;
+      box-shadow: 0px 4px 40px rgba(38, 41, 43, 0.07);
 
       img {
         align-self: flex-end;
@@ -24,7 +26,7 @@
         position: absolute;
         bottom: 0;
         margin: 24px;
-        z-index: 1;
+        z-index: 3;
         color: "#FFFFFF";
         display: flex;
         flex-direction: column;
@@ -68,13 +70,51 @@
         }
       }
     }
+
+    .furniture,
+    .ad,
+    .medical {
+      .gradient {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+      }
+    }
+
+    .furniture {
+      .gradient {
+        background: linear-gradient(
+          89.13deg,
+          rgba(0, 0, 0, 0.4) 0.76%,
+          rgba(0, 0, 0, 0.4) 0.77%,
+          rgba(0, 0, 0, 0) 64.8%
+        );
+      }
+    }
+
+    .ad {
+      .info {
+        color: black;
+      }
+    }
+
+    .medical {
+      .gradient {
+        background: linear-gradient(
+          268.68deg,
+          rgba(0, 0, 0, 0.5) 1.02%,
+          rgba(0, 0, 0, 0) 99.4%
+        );
+      }
+    }
   }
 
   @media screen and (min-width: 1120px) {
     .slides {
       width: 1120px;
       margin: auto;
-      gap: 100px;
+      gap: 40px;
       margin-bottom: -40px;
 
       .slide {
@@ -83,6 +123,34 @@
         img {
           width: 1120px;
           height: 720px;
+        }
+      }
+
+      .ad {
+        display: flex;
+        flex-direction: column;
+
+        .gradient {
+          position: absolute;
+          background: linear-gradient(
+            67.53deg,
+            rgba(0, 0, 0, 0.4) 0%,
+            rgba(0, 0, 0, 0.4) 0.01%,
+            rgba(0, 0, 0, 0) 39.82%
+          );
+          height: 100%;
+          width: 100%;
+          z-index: 2;
+        }
+
+        img {
+          height: 720px;
+          width: auto;
+          align-self: center;
+        }
+
+        .info {
+          color: white;
         }
       }
     }

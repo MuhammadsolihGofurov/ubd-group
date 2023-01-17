@@ -15,6 +15,22 @@ const ProductDescription = () => {
                     }
                 </button>
             </div>
+            <div className={styles.charasteristics}>
+                <div>
+                    <p>Плотность (гр/м²)</p>
+                    <strong>15-60</strong>
+                </div>
+                <hr />
+                <div>
+                    <p>Цвет</p>
+                    <strong>Голубой, натуральный, зеленый</strong>
+                </div>
+                <hr />
+                <div>
+                    <p>Ширина</p>
+                    <strong>2.4м</strong>
+                </div>
+            </div>
         </div>
     );
 }

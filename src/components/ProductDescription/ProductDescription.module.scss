@@ -1,8 +1,6 @@
 @import "/src/styles/variables.scss";
 
 .container {
-  grid-column: 2/3;
-  grid-row: 1/2;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -43,6 +41,42 @@
     }
   }
 
+  .charasteristics {
+    font-family: "Inter";
+    padding: 24px 0;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+    border-radius: 16px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      p {
+        font-family: "Inter";
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        color: #828282;
+      }
+
+      strong {
+        font-family: "Inter";
+      }
+    }
+
+    hr {
+      border: 1px solid #e0e0e0;
+      width: 30%;
+    }
+  }
+
   @media screen and (min-width: 1025px) {
     h2 {
       font-family: "Inter";
@@ -54,6 +88,18 @@
     .hide {
       p {
         -webkit-line-clamp: 3; /* number of lines to show */
+      }
+    }
+
+    .charasteristics {
+      flex-direction: row;
+      justify-content: space-around;
+
+      hr {
+        border: none;
+        border-left: 1px solid #e0e0e0;
+        height: 100%;
+        width: 1px;
       }
     }
   }
