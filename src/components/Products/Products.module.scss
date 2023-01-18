@@ -27,6 +27,7 @@
         // overflow: hidden;
         width: fit-content;
         box-shadow: 0px 4px 40px rgba(38, 41, 43, 0.07);
+        background-color: white;
       }
 
       h3 {
@@ -40,7 +41,33 @@
     }
   }
 
-  @media screen and (min-width: 1025px) {
+  .vector1,
+  .vector2,
+  .vector3 {
+    img {
+      position: absolute;
+    }
+  }
+
+  .vector2 {
+    img {
+      display: none;
+    }
+  }
+
+  .vector1 {
+    img {
+      width: 200px;
+      height: 800px;
+      top: 25%;
+      right: 0;
+      z-index: -1;
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .container {
     h2 {
       font-weight: 700;
       font-size: 32px;
@@ -52,12 +79,39 @@
       grid-template-columns: repeat(3, auto);
       justify-content: space-between;
     }
-  }
 
-  @media screen and (min-width: 1500px) {
+    .vector1 {
+      img {
+        display: none;
+      }
+    }
+
+    .vector2 {
+      img {
+        width: 200px;
+        height: 800px;
+        display: flex;
+      }
+    }
+
+    .vector2 {
+      img {
+        z-index: -1;
+        top: -15%;
+        right: 0;
+        width: 450px;
+        height: 650px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .container {
     .products {
       padding: 0 200px;
       row-gap: 80px;
+      column-gap: 160px;
     }
   }
 }

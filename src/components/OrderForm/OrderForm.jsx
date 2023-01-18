@@ -13,7 +13,7 @@ const OrderForm = () => {
                 <button>Оставить заявку</button>
             </form>
 
-            <div className={styles.vector1}>
+            <div className={styles.vector}>
                 <ImageComponent
                     src={'/images/order-vector-1.png'}
                 />

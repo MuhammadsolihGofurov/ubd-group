@@ -3,8 +3,8 @@ import styles from "./Headline.module.scss"
 const Headline = () => {
     return (
         <div className={styles.container}>
-            <div className={styles.animation}>
-                <svg>
+            {/*<div className={styles.animation}>
+                 <svg>
                     <defs>
                         <linearGradient id="A" x1="0" x2="1" y1="0" y2="0">
                             <stop stopColor="#f0f" offset="0" />
@@ -25,7 +25,7 @@ const Headline = () => {
                         </path>
                     </g>
                 </svg>
-            </div>
+            </div> */}
             <div className={styles.description}>
                 <h1>UBD поможет вам с подбором спанбонда</h1>
                 <p>Спанбонд – это современный, экологически чистый материал на основе волокон полипропилена</p>

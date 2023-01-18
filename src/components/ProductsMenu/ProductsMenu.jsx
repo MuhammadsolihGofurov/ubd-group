@@ -6,7 +6,7 @@ const ProductsMenu = ({ isOpen, setIsOpen }) => {
         useEffect(() => {
             function handleClickOutside(event) {
                 if (ref.current && !ref.current.contains(event.target)) {
-                    if (isOpen == true) {
+                    if (isOpen !== true) {
                         setIsOpen(false);
                     }
                 }

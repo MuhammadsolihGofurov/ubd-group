@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import Link from 'next/link'
+import { Link } from 'react-scroll';
 import Image from 'next/image';
 
 import data from '../../../db.json';
@@ -14,6 +14,12 @@ export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { route } = useRouter();
 
+    const router = useRouter();
+
+    const handleClick = (url) => {
+        router.push(url)
+    };
+
     return (
         <div className={`
             ${styles.container}
@@ -21,7 +27,7 @@ export const Header = () => {
             ${route === '/products/[product]' ? styles.product : ''}
         `}>
             <div className={styles.content}>
-                <Link href='/' className={styles.logo}>
+                <div onClick={() => handleClick('/')} className={styles.logo}>
                     <Image
                         src={'/images/company logo.png'}
                         alt='Company logo'
@@ -33,7 +39,7 @@ export const Header = () => {
                         <p>UBD GROUP</p>
                         <p>Спонбонд в Узбекистане</p>
                     </div>
-                </Link>
+                </div>
                 <Menu setIsOpen={setIsOpen} data={data} menu={data.menu} isOpen={isOpen} />
                 <div
                     className={styles.menuButton}
@@ -50,9 +56,22 @@ export const Header = () => {
                 </div>
                 <div className={styles.links}>
                     {
-                        data.menu?.map((item) => (
+                        data.menu?.map((item, index) => (
                             <li key={item.id}>
-                                <Link href={item.url}>{item.title}</Link>
+                                <Link
+                                    to={item.url}
+                                    spy={true}
+                                    smooth={true}
+                                    offset={-100}
+                                    duration={500 * index}
+                                    onClick={() => {
+                                        if (item.url === '/' || item.url === '/aboutus') {
+                                            handleClick(item.url)
+                                        }
+                                    }}
+                                >
+                                    {item.title}
+                                </Link>
                             </li>
                         ))
                     }

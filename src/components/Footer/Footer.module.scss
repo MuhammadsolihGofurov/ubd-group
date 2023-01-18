@@ -1,3 +1,5 @@
+@import "/src/styles/variables.scss";
+
 .container {
   background-color: transparent;
   padding: 0 34px;
@@ -26,10 +28,20 @@
         font-weight: 500;
         padding-left: 1em;
         text-indent: -0.7em;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+          color: $pink-main;
+
+          &::before {
+            color: $pink-main;
+          }
+        }
 
         &::before {
           content: "• ";
           color: #bdbdbd;
+          transition: color 0.3s ease-in-out;
         }
 
         margin-bottom: 12px;
@@ -57,6 +69,12 @@
 
         svg {
           fill: #bdbdbd;
+          cursor: pointer;
+          transition: fill 0.3s ease-in-out;
+
+          &:hover {
+            fill: $pink-main;
+          }
         }
       }
     }

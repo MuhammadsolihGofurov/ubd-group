@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link'
 
-import styled from "styled-components"
 import CompanyLogo from '../CompanyLogo/CompanyLogo';
 
 import styles from './Menu.module.scss'
@@ -25,13 +24,13 @@ const Menu = ({ isOpen, setIsOpen, data, menu }) => {
             <div className={styles.links}>
                 {
                     menu?.map((item) => (
-                        <li key={item.id}>
+                        <li key={item.id} onClick={() => setIsOpen(false)}>
                             <Link href={item.url}>{item.title}</Link>
                         </li>
                     ))
                 }
                 <li>
-                    <Link href='/'>
+                    <Link href='/' onClick={() => setIsOpen(false)}>
                         <svg
                             viewBox='0 0 24 24'
                             width={28}
@@ -46,7 +45,7 @@ const Menu = ({ isOpen, setIsOpen, data, menu }) => {
             </div>
             <div className={styles.contact}>
                 <div className={styles.socials}>
-                    <Link href="/">
+                    <Link href="/" onClick={() => setIsOpen(false)}>
                         <svg
                             viewBox='0 0 24 24'
                             width={40}
@@ -56,7 +55,7 @@ const Menu = ({ isOpen, setIsOpen, data, menu }) => {
                             <use xlinkHref='#facebook'></use>
                         </svg>
                     </Link>
-                    <Link href="/">
+                    <Link href="/" onClick={() => setIsOpen(false)}>
                         <svg
                             viewBox='0 0 24 24'
                             width={40}
@@ -66,7 +65,7 @@ const Menu = ({ isOpen, setIsOpen, data, menu }) => {
                             <use xlinkHref='#instagram'></use>
                         </svg>
                     </Link>
-                    <Link href="/">
+                    <Link href="/" onClick={() => setIsOpen(false)}>
                         <svg
                             viewBox='0 0 24 24'
                             width={40}

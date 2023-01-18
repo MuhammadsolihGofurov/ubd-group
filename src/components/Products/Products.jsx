@@ -1,10 +1,14 @@
+import { useRef } from 'react';
 import data from '../../../db.json';
+import ImageComponent from '../ImageComponent/ImageComponent';
 
 import styles from './Products.module.scss';
 
 const Products = () => {
+    const ProductsRef = useRef(null);
+
     return (
-        <div className={styles.container}>
+        <div className={styles.container} ref={ProductsRef} id='products'>
             <h2>Продукция</h2>
             <div className={styles.products}>
                 {
@@ -26,6 +30,18 @@ const Products = () => {
                         </div>
                     ))
                 }
+            </div>
+
+            <div className={styles.vector1}>
+                <ImageComponent
+                    src={'/images/main-vector-1.png'}
+                />
+            </div>
+
+            <div className={styles.vector2}>
+                <ImageComponent
+                    src={'/images/main-vector-2.png'}
+                />
             </div>
         </div>
     )

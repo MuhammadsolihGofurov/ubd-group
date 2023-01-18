@@ -21,6 +21,7 @@
     width: 100%;
     max-width: 1600px;
     .logo {
+      cursor: pointer;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -112,19 +113,22 @@
 .product {
   color: white;
 
-  .links {
-    .request {
-      border-color: #ffffff;
-      svg {
-        fill: white;
+  .content {
+    .links {
+      .request {
+        cursor: pointer;
+        border-color: #ffffff;
+        svg {
+          fill: white;
+        }
       }
     }
-  }
 
-  .menuButton {
-    svg {
-      stroke: white;
-      scale: 0.8;
+    .menuButton {
+      svg {
+        stroke: white;
+        scale: 0.8;
+      }
     }
   }
 }

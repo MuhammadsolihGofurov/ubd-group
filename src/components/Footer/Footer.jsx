@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 
 import { useState } from "react";
 
-import styled from "styled-components";
 import styles from './Footer.module.scss';
 
 const Footer = ({ show }) => {
@@ -12,10 +11,12 @@ const Footer = ({ show }) => {
 
     return (
         <div className={`
-        ${styles.container}
-        ${route === '/products/[product]' ? styles.hide : ''}
-        ${show ? styles.show : ''}
-    `}>
+            ${styles.container}
+            ${route === '/products/[product]' ? styles.hide : ''}
+            ${show ? styles.show : ''}
+        `}
+            id="footer"
+        >
             <div className={styles.content}>
                 <hr />
                 <div className={styles.pages}>
@@ -58,24 +59,3 @@ const Footer = ({ show }) => {
 }
 
 export default Footer;
-
-const Socials = styled.div`
-    text-align: end;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 15px;
-
-    @media screen and (min-width: 769px){
-        justify-content: flex-start;
-    }
-`
-
-const Dev = styled.div`
-    text-align: end;    
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: .02em;
-    color: #fb4a7b;
-`

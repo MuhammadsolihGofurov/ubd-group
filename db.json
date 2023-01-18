@@ -13,12 +13,12 @@
     {
       "id": 2,
       "title": "Фотогалерея",
-      "url": "/"
+      "url": "gallary"
     },
     {
       "id": 3,
       "title": "Контакты",
-      "url": "/"
+      "url": "/aboutus"
     }
   ],
   "products": [

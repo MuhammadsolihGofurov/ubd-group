@@ -37,12 +37,6 @@
     align-items: center;
     padding: 24px;
 
-    &:hover {
-      p {
-        display: flex;
-      }
-    }
-
     p {
       display: none;
       position: absolute;
@@ -78,6 +72,14 @@
     .description {
       font-size: 20px;
       width: 50%;
+    }
+
+    button {
+      &:hover {
+        p {
+          display: flex;
+        }
+      }
     }
   }
 }

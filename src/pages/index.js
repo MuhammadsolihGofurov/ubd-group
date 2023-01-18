@@ -24,7 +24,7 @@ const Home = () => {
         <CategoryTabs />
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 196" fill="none">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M1440 0H0V195.029C215.554 101.063 460.188 48 719.5 48C979.213 48 1224.2 101.227 1440 195.466V0Z" fill="#FFFFFF" />
+        <path fillRule="evenodd" clipRule="evenodd" d="M1440 0H0V195.029C215.554 101.063 460.188 48 719.5 48C979.213 48 1224.2 101.227 1440 195.466V0Z" fill="#FFFFFF" />
       </svg>
       <Contacts />
     </div>

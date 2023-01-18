@@ -60,7 +60,7 @@
     }
   }
 
-  .vector1 {
+  .vector {
     img {
       position: absolute;
       z-index: -1;
@@ -68,19 +68,21 @@
       left: 0;
     }
   }
+}
 
-  .vector2 {
-    img {
-      position: absolute;
-      z-index: -1;
-      left: 0;
-      width: 100px;
-      height: 100px;
-    }
-  }
-
-  @media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) {
+  .container {
     margin: 0;
     margin-right: 40px;
+
+    h1 {
+      font-size: 24px;
+    }
+
+    .vector {
+      img {
+        height: 200px;
+      }
+    }
   }
 }

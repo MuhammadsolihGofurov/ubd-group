@@ -8,10 +8,11 @@
   width: 100%;
   z-index: 2;
   background-color: white;
-
-  @media screen and (min-width: 1500px) {
-    min-height: 750px;
-  }
+  background-image: url("/images/wave.svg");
+  background-repeat: no-repeat;
+  background-size: 200% 105%;
+  background-position: center;
+  // background-position-y: 70px;
 
   .animation {
     position: relative;
@@ -29,31 +30,6 @@
       top: 40%;
       scale: 1.6;
       left: -30%;
-
-      @media screen and (min-width: 481px) {
-      }
-
-      @media screen and (min-width: 769px) {
-        width: 1024px;
-      }
-
-      @media screen and (min-width: 1025px) {
-        width: 1920px;
-        top: 300px;
-        scale: 1.8;
-        left: 15%;
-      }
-
-      @media screen and (min-width: 1500px) {
-        top: 75%;
-        // width: 1920px;
-        scale: 2.5;
-        left: 23%;
-      }
-
-      @media screen and (min-width: 1921px) {
-        width: 3840px;
-      }
     }
   }
 
@@ -64,11 +40,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: -3em;
-
-    @media screen and (min-width: 1025px) {
-      width: 2017px;
-      height: 698px;
-    }
   }
 
   .description {
@@ -77,34 +48,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    top: 30%;
+    top: 35%;
     gap: 24px;
-
-    @media screen and (min-width: 481px) {
-      top: 200px;
-    }
-
-    @media screen and (min-width: 1025px) {
-      top: 30%;
-      left: 15%;
-      width: 767px;
-    }
-
-    @media screen and (min-width: 1921px) {
-      top: 40%;
-    }
 
     h1 {
       margin: 0;
       line-height: 38px;
       font-size: 32px;
-
-      @media screen and (min-width: 1025px) {
-        width: 724px;
-        margin-top: 60px;
-        font-size: 68px;
-        line-height: 82px;
-      }
     }
 
     p {
@@ -120,8 +70,147 @@
       color: white;
       font-size: 16px;
       font-weight: 800;
+      line-height: 19px;
       margin-top: 40px;
+      letter-spacing: 1px;
       cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #bf3159;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 481px) {
+  .container {
+    .animation {
+      svg {
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .container {
+    .animation {
+      svg {
+        width: 1024px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .container {
+    .animation {
+      svg {
+        width: 1920px;
+        top: 55%;
+        scale: 1.8;
+        left: 15%;
+      }
+    }
+
+    .description {
+      top: 40%;
+      left: 15%;
+      width: 767px;
+
+      h1 {
+        font-weight: 700;
+        font-size: 68px;
+        line-height: 80px;
+        color: #ffffff;
+      }
+
+      p {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 150%;
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    .image {
+      width: 2017px;
+      height: 698px;
+
+      h1 {
+        width: 724px;
+        margin-top: 60px;
+        font-size: 68px;
+        line-height: 82px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .container {
+    .animation {
+      svg {
+        top: 70%;
+        scale: 2.5;
+        left: 23%;
+      }
+    }
+
+    .description {
+      top: 30%;
+    }
+  }
+}
+
+@media screen and (min-width: 1921px) {
+  .container {
+    width: 3840px;
+
+    .animation {
+      svg {
+        top: 85%;
+        // width: 3840px;
+      }
+    }
+
+    .description {
+      top: 40%;
+    }
+  }
+}
+
+@media screen and (min-width: 1921px) {
+  // .container {
+  //   width: 3840px;
+
+  //   .animation {
+  //     svg {
+  //       top: 85%;
+  //       width: 3840px;
+  //       left: 75%;
+  //     }
+  //   }
+
+  //   .description {
+  //     top: 40%;
+  //   }
+  // }
+}
+
+@media screen and (min-width: 1921px) {
+  .container {
+    // width: 5500px;
+
+    .animation {
+      svg {
+        // top: 85%;
+        // width: 100%;
+      }
+    }
+
+    .description {
+      top: 40%;
     }
   }
 }

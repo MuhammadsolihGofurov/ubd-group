@@ -1,9 +1,13 @@
 .container {
   position: sticky;
-  // height: 200vh;
   bottom: -35em;
   z-index: -2;
   padding: 0 34px;
+
+  * {
+    font-family: "Inter", sans-serif;
+  }
+
   .content {
     h3 {
       text-align: center;
@@ -85,13 +89,9 @@
           font-weight: 500;
           border-radius: 8px;
 
-          @media screen and (min-width: 1025px) {
-            width: 100%;
+          &:focus {
+            outline: 1px solid #afafaf;
           }
-        }
-
-        @media screen and (min-width: 1025px) {
-          flex-direction: row;
         }
       }
 
@@ -103,6 +103,11 @@
         font-weight: 500;
         border-radius: 8px;
         width: 100%;
+        resize: vertical;
+
+        &:focus {
+          outline: 1px solid #afafaf;
+        }
       }
 
       .button {
@@ -164,7 +169,6 @@
       grid-template-rows: 250px;
       grid-template-columns: 1fr 1fr;
       padding: 0 160px;
-      // padding-top: 250px;
       margin-top: 100px;
       column-gap: 160px;
 
@@ -198,7 +202,6 @@
       form {
         flex-direction: row;
         flex-wrap: wrap;
-        // gap: 80px;
         margin: 0;
         width: 100%;
 
