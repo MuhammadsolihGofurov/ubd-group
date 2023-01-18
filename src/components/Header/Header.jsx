@@ -65,7 +65,7 @@ export const Header = () => {
                                     offset={-100}
                                     duration={500 * index}
                                     onClick={() => {
-                                        if (item.url === '/' || item.url === '/aboutus') {
+                                        if (item.url === '/' || item.url === '/aboutus' || item.url === '/products/product') {
                                             handleClick(item.url)
                                         }
                                     }}
@@ -88,7 +88,7 @@ export const Header = () => {
                     </Link>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
