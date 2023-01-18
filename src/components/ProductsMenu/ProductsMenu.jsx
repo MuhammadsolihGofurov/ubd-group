@@ -1,10 +1,31 @@
+import { useEffect, useRef } from 'react';
 import styles from './ProductsMenu.module.scss'
 
 const ProductsMenu = ({ isOpen, setIsOpen }) => {
+    const useOutsideAlerter = (ref) => {
+        useEffect(() => {
+            function handleClickOutside(event) {
+                if (ref.current && !ref.current.contains(event.target)) {
+                    if (isOpen == true) {
+                        setIsOpen(false);
+                    }
+                }
+            }
+            document.addEventListener("mousedown", handleClickOutside);
+            return () => {
+                document.removeEventListener("mousedown", handleClickOutside);
+            };
+        }, [ref]);
+    }
+
+    const wrapperRef = useRef(null);
+    useOutsideAlerter(wrapperRef);
+
     return (
         <div
             className={`${styles.container} ${isOpen ? styles.open : ''}`}
             onTouchMove={(e) => e.preventDefault()}
+            ref={wrapperRef}
         >
             <div
                 className={styles.indicator}
