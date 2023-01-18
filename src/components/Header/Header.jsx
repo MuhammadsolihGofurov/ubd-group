@@ -20,52 +20,54 @@ export const Header = () => {
             ${route === '/aboutus' ? styles.aboutus : ''}
             ${route === '/products/[product]' ? styles.product : ''}
         `}>
-            <Link href='/' className={styles.logo}>
-                <Image
-                    src={'/images/company logo.png'}
-                    alt='Company logo'
-                    sizes='100vw'
-                    width='0'
-                    height='0'
-                />
-                <div>
-                    <p>UBD GROUP</p>
-                    <p>Спонбонд в Узбекистане</p>
-                </div>
-            </Link>
-            <Menu setIsOpen={setIsOpen} data={data} menu={data.menu} isOpen={isOpen} />
-            <div
-                className={styles.menuButton}
-                onClick={() => setIsOpen(!isOpen)}
-            >
-                <svg
-                    viewBox='0 0 24 24'
-                    height={32}
-                    width={32}
-                    stroke='none'
+            <div className={styles.content}>
+                <Link href='/' className={styles.logo}>
+                    <Image
+                        src={'/images/company logo.png'}
+                        alt='Company logo'
+                        sizes='100vw'
+                        width='0'
+                        height='0'
+                    />
+                    <div>
+                        <p>UBD GROUP</p>
+                        <p>Спонбонд в Узбекистане</p>
+                    </div>
+                </Link>
+                <Menu setIsOpen={setIsOpen} data={data} menu={data.menu} isOpen={isOpen} />
+                <div
+                    className={styles.menuButton}
+                    onClick={() => setIsOpen(!isOpen)}
                 >
-                    <use xlinkHref='#menu'></use>
-                </svg>
-            </div>
-            <div className={styles.links}>
-                {
-                    data.menu?.map((item) => (
-                        <li key={item.id}>
-                            <Link href={item.url}>{item.title}</Link>
-                        </li>
-                    ))
-                }
-                <Link href='/' className={styles.request}>
                     <svg
                         viewBox='0 0 24 24'
-                        width={28}
-                        height={28}
-                        fill="none"
+                        height={32}
+                        width={32}
+                        stroke='none'
                     >
-                        <use xlinkHref='#plus'></use>
+                        <use xlinkHref='#menu'></use>
                     </svg>
-                    Оставить заявку
-                </Link>
+                </div>
+                <div className={styles.links}>
+                    {
+                        data.menu?.map((item) => (
+                            <li key={item.id}>
+                                <Link href={item.url}>{item.title}</Link>
+                            </li>
+                        ))
+                    }
+                    <Link href='/' className={styles.request}>
+                        <svg
+                            viewBox='0 0 24 24'
+                            width={28}
+                            height={28}
+                            fill="none"
+                        >
+                            <use xlinkHref='#plus'></use>
+                        </svg>
+                        Оставить заявку
+                    </Link>
+                </div>
             </div>
         </div>
     )
