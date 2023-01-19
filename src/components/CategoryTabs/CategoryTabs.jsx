@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 import data from '../../../db.json';
 
@@ -10,58 +10,45 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles from './CategoryTabs.module.scss';
 
 const CategoryTabs = () => {
-    const [isMobile, setIsMobile] = useState(false)
     const categoryTabsRef = useRef(null);
-
-    const handleResize = () => {
-        if (window.innerWidth < 1025) {
-            setIsMobile(true)
-        } else {
-            setIsMobile(false)
-        }
-    }
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
-        if (!isMobile) {
-            const cards = gsap.utils.toArray(".card");
-            const spacer = 20;
-            const minScale = 0.8;
 
-            const distributor = gsap.utils.distribute({ base: minScale, amount: 0.2 });
+        const cards = gsap.utils.toArray(".card");
+        const spacer = 20;
+        const minScale = 0.8;
 
-            cards.forEach((card, index) => {
-                const scaleVal = distributor(index, cards[index], cards);
+        const distributor = gsap.utils.distribute({ base: minScale, amount: 0.2 });
 
-                const tween = gsap.to(card, {
-                    scrollTrigger: {
-                        trigger: card,
-                        start: `top top`,
-                        scrub: true,
-                        markers: false,
-                        invalidateOnRefresh: true
-                    },
-                    ease: "none",
-                    scale: scaleVal
-                });
+        cards.forEach((card, index) => {
+            const scaleVal = distributor(index, cards[index], cards);
 
-                ScrollTrigger.create({
+            const tween = gsap.to(card, {
+                scrollTrigger: {
                     trigger: card,
-                    start: `top-=${index * spacer} top`,
-                    endTrigger: '.cards',
-                    end: `bottom top+=${250 + (cards.length * spacer)}`,
-                    pin: true,
-                    pinSpacing: false,
+                    start: `top top`,
+                    scrub: true,
                     markers: false,
-                    id: 'pin',
-                    invalidateOnRefresh: true,
-                });
+                    invalidateOnRefresh: true
+                },
+                ease: "none",
+                scale: scaleVal
             });
-        }
 
-        window.addEventListener("resize", handleResize)
+            ScrollTrigger.create({
+                trigger: card,
+                start: `top-=${index * spacer} top`,
+                endTrigger: '.cards',
+                end: `bottom top+=${250 + (cards.length * spacer)}`,
+                pin: true,
+                pinSpacing: false,
+                markers: false,
+                id: 'pin',
+                invalidateOnRefresh: true,
+            });
+        });
     });
-
 
     return (
         <div className={styles.container} ref={categoryTabsRef} id="gallary">
