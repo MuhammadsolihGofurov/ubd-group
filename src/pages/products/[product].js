@@ -1,22 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Head from 'next/head';
+
+import data from '../../../db.json';
 
 import ImageComponent from '../../components/ImageComponent/ImageComponent';
 import OrderForm from '../../components/OrderForm/OrderForm';
 import ProductDescription from '../../components/ProductDescription/ProductDescription';
 import ProductsMenu from '../../components/ProductsMenu/ProductsMenu';
+import Footer from '../../components/Footer/Footer';
+import ProductGallery from '../../components/ProductGallery/ProductGallery';
 
 import styles from './Products.module.scss'
-import Footer from '../../components/Footer/Footer';
 
 const ProductPage = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [showGallery, setShowGallery] = useState(false);
+    const [imageId, setImageId] = useState(1)
 
     return (
         <>
             <Head>
                 <title>Продукты</title>
             </Head>
+
             <div className={styles.container}>
                 <div className={styles.image}>
                     <ImageComponent
@@ -45,25 +51,67 @@ const ProductPage = () => {
                         <ProductDescription />
                         <div className={styles.imageColumns}>
                             <div className={styles.column1}>
-                                <ImageComponent src="/images/Furniture.png" />
-                                <ImageComponent src="/images/Furniture.png" />
-                                <ImageComponent src="/images/Furniture.png" />
-                                <ImageComponent src="/images/Furniture.png" />
+                                {
+                                    data.gallary.map((item, index) => {
+                                        if (index <= 3) {
+                                            return (
+                                                <div
+                                                    key={item.id}
+                                                    onClick={() => {
+                                                        setShowGallery(true);
+                                                        setImageId(item.id)
+                                                    }}
+                                                >
+                                                    <ImageComponent
+                                                        src={item.img}
+                                                    />
+                                                </div>
+                                            )
+                                        }
+                                    })
+                                }
                             </div>
                             <div className={styles.column2}>
-                                <ImageComponent src="/images/Furniture.png" />
-                                <ImageComponent src="/images/Furniture.png" />
-                                <ImageComponent src="/images/Furniture.png" />
-                                <ImageComponent src="/images/Furniture.png" />
-                                <ImageComponent src="/images/Furniture.png" />
+                                {
+                                    data.gallary.map((item, index) => {
+                                        if (index >= 4 && index <= 8) {
+                                            return (
+                                                <div
+                                                    key={item.id}
+                                                    onClick={() => {
+                                                        setShowGallery(true);
+                                                        setImageId(item.id)
+                                                    }}
+                                                >
+                                                    <ImageComponent
+                                                        src={item.img}
+                                                    />
+                                                </div>
+                                            )
+                                        }
+                                    })
+                                }
                             </div>
                             <div className={styles.column3}>
-                                <ImageComponent src="/images/Furniture.png" />
-                                <ImageComponent src="/images/Furniture.png" />
-                                <ImageComponent src="/images/Furniture.png" />
-                                <ImageComponent src="/images/Furniture.png" />
-                                <ImageComponent src="/images/Furniture.png" />
-                                <ImageComponent src="/images/Furniture.png" />
+                                {
+                                    data.gallary.map((item, index) => {
+                                        if (index >= 9 && index <= 14) {
+                                            return (
+                                                <div
+                                                    key={item.id}
+                                                    onClick={() => {
+                                                        setShowGallery(true);
+                                                        setImageId(item.id)
+                                                    }}
+                                                >
+                                                    <ImageComponent
+                                                        src={item.img}
+                                                    />
+                                                </div>
+                                            )
+                                        }
+                                    })
+                                }
                             </div>
                         </div>
                         <Footer show={true} />
@@ -85,6 +133,8 @@ const ProductPage = () => {
                 </div>
 
                 <ProductsMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+
+                <ProductGallery data={data.gallary} showGallery={showGallery} imageId={imageId} setShowGallery={setShowGallery} />
             </div>
         </>
     );

@@ -50,6 +50,7 @@
 
         div {
           img {
+            cursor: pointer;
             object-fit: cover;
             height: 100%;
             width: 100%;
@@ -60,14 +61,12 @@
         .column1 {
           display: grid;
           grid-template-rows: 186px 116px 288px 288px;
-          // overflow: hidden;
           gap: 16px;
         }
 
         .column2 {
           display: grid;
           grid-template-rows: 288px 76px 249px 191px;
-          // overflow: hidden;
           gap: 16px;
 
           img {
@@ -143,7 +142,6 @@
           .column3 {
             display: grid;
             grid-template-rows: 240px 600px 240px 388px 160px 160px;
-            // overflow: hidden;
             gap: 16px;
           }
         }

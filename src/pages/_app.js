@@ -8,6 +8,7 @@ import NProgress from "nprogress";
 //styles
 import '../styles/nprogress.css'
 import "../styles/globals.scss";
+import "../components/ProductGallery/ProductGallery.scss";
 
 //layout
 import MainLayout from "../layouts/Main";

@@ -3,14 +3,12 @@ import data from '../../../db.json';
 import ImageComponent from '../ImageComponent/ImageComponent'
 
 import styles from './CategoryTabs.module.scss';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 const CategoryTabs = () => {
-    const categoryTabsRef = useRef(null);
-
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
@@ -50,7 +48,7 @@ const CategoryTabs = () => {
     });
 
     return (
-        <div className={styles.container} ref={categoryTabsRef} id="gallary">
+        <div className={styles.container} id="gallary">
             <div className={`cards ${styles.slides} ${styles.anim}`}>
                 {
                     data.sliders.map((item) => (
