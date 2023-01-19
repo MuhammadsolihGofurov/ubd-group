@@ -12,6 +12,9 @@
   background-repeat: no-repeat;
   background-size: 200% 105%;
   background-position: center;
+  -o-background-size: 200% 105%;
+  -moz-background-size: 200% 105%;
+  -webkit-background-size: 200% 105%;
   // background-position-y: 70px;
 
   .animation {
