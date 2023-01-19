@@ -97,7 +97,6 @@
 
       .columnBackground {
         position: absolute;
-        background-color: white;
         height: 400vh;
         width: 100vw;
         top: -10em;
@@ -159,6 +158,9 @@
       }
 
       .contentColumn2 {
+        .columnBackground {
+          background-color: white;
+        }
         .categories {
           display: flex;
 
