@@ -25,7 +25,7 @@ export const Header = () => {
             ${styles.container}
             ${route === '/aboutus' ? styles.aboutus : ''}
             ${route === '/products/[product]' ? styles.product : ''}
-        `}>
+        `} id="header">
             <div className={styles.content}>
                 <div onClick={() => handleClick('/')} className={styles.logo}>
                     <Image

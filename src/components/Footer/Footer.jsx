@@ -1,13 +1,17 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { useState } from "react";
+import { Link } from "react-scroll";
 
 import styles from './Footer.module.scss';
 
 const Footer = ({ show }) => {
     const [isLoading, setIsLoading] = useState(true);
     const { route } = useRouter();
+    const router = useRouter();
+    const handleClick = (url) => {
+        router.push(url)
+    }
 
     return (
         <div className={`
@@ -20,11 +24,51 @@ const Footer = ({ show }) => {
             <div className={styles.content}>
                 <hr />
                 <div className={styles.pages}>
-                    <Link href="/">Главная</Link>
-                    <Link href="/">Фотогалерея</Link>
-                    <Link href="/">Продукция</Link>
-                    <Link href="/">Контакты</Link>
-                    <Link href='/'>Оставить заявку</Link>
+                    <Link
+                        to="header"
+                        spy={true}
+                        smooth={true}
+                        offset={-100}
+                        duration={1000}
+                    >
+                        Главная
+                    </Link>
+                    <Link
+                        to="gallary"
+                        spy={true}
+                        smooth={true}
+                        offset={-100}
+                        duration={500}
+                    >
+                        Фотогаллерея
+                    </Link>
+                    <Link
+                        onClick={() => handleClick('products/[products]')}
+                        spy={true}
+                        smooth={true}
+                        offset={-100}
+                        duration={1000}
+                    >
+                        Продукция
+                    </Link>
+                    <Link
+                        onClick={() => handleClick('/aboutus')}
+                        spy={true}
+                        smooth={true}
+                        offset={-100}
+                        duration={1000}
+                    >
+                        О нас
+                    </Link>
+                    <Link
+                        to='contacts'
+                        spy={true}
+                        smooth={true}
+                        offset={-100}
+                        duration={200}
+                    >
+                        Оставить заявку
+                    </Link>
                 </div>
 
                 <div className={styles.socials}>
