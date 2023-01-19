@@ -115,7 +115,7 @@
     .content {
       width: 100%;
       display: grid;
-      grid-template-columns: 7fr 5fr;
+      grid-template-columns: 3fr 7fr;
       gap: 32px;
 
       .contentColumn1 {
@@ -150,13 +150,15 @@
       }
 
       .contentColumn2 {
+        grid-row: 1/2;
+
         .columnBackground {
           background-color: white;
           position: absolute;
-          height: 400vh;
-          width: 100vw;
-          top: -10em;
+          top: -60px;
+          height: 120%;
           right: 0;
+          width: 1000%;
         }
 
         .categories {
@@ -194,10 +196,6 @@
     .content {
       width: 85%;
       grid-template-columns: 3fr 9fr;
-
-      .contentColumn2 {
-        grid-row: 1/2;
-      }
     }
   }
 }
