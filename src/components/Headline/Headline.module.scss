@@ -10,11 +10,8 @@
   background-color: white;
   background-image: url("/images/wave.svg");
   background-repeat: no-repeat;
-  background-size: 200% 105%;
+  background-size: cover;
   background-position: center;
-  -o-background-size: 200% 105%;
-  -moz-background-size: 200% 105%;
-  -webkit-background-size: 200% 105%;
   // background-position-y: 70px;
 
   .animation {
