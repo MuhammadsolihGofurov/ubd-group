@@ -39,7 +39,7 @@ const CategoryTabs = () => {
                 trigger: card,
                 start: `top-=${index * spacer} top`,
                 endTrigger: '.cards',
-                end: `bottom top+=${(cards.length * spacer)}`,
+                end: `bottom top+=${250 + (cards.length * spacer)}`,
                 pin: true,
                 pinSpacing: false,
                 markers: false,
