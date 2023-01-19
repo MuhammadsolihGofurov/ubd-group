@@ -112,6 +112,10 @@
       display: none;
     }
   }
+
+  .anim {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1120px) {
@@ -167,6 +171,14 @@
         height: 500px;
         width: 150px;
       }
+    }
+
+    .anim {
+      display: flex;
+    }
+
+    .row {
+      display: none;
     }
   }
 }

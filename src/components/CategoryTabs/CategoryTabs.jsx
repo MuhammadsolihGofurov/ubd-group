@@ -21,7 +21,6 @@ const CategoryTabs = () => {
         const distributor = gsap.utils.distribute({ base: minScale, amount: 0.2 });
 
         cards.forEach((card, index) => {
-
             const scaleVal = distributor(index, cards[index], cards);
 
             const tween = gsap.to(card, {
@@ -36,23 +35,17 @@ const CategoryTabs = () => {
                 scale: scaleVal
             });
 
-            ScrollTrigger.create({
-                trigger: card,
-                start: `top-=${index * spacer} top`,
-                endTrigger: '.cards',
-                end: `bottom top+=${200 + (cards.length * spacer)}`,
-                pin: true,
-                pinSpacing: false,
-                markers: false,
-                id: 'pin',
-                invalidateOnRefresh: true,
-            });
+            ScrollTrigger.matchMedia({
+                "(min-width: 1025px)": () => {
+
+                }
+            })
         });
     });
 
     return (
         <div className={styles.container} ref={categoryTabsRef} id="gallary">
-            <div className={`cards ${styles.slides}`}>
+            <div className={`cards ${styles.slides} ${styles.anim}`}>
                 {
                     data.sliders.map((item) => (
                         <div className={`
@@ -61,6 +54,30 @@ const CategoryTabs = () => {
                         ${item.id === 1 ? styles.ad : ''}
                         ${item.id === 2 ? styles.medical : ''}
                         card
+                        `}
+                            key={item.id}
+                        >
+                            <div className={styles.gradient}></div>
+                            <ImageComponent
+                                src={item.img}
+                                alt=""
+                            />
+                            <div className={styles.info} color={item.id}>
+                                <h2>{item.title}</h2>
+                                <p>{item.description}</p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+            <div className={`${styles.slides} ${styles.row}`}>
+                {
+                    data.sliders.map((item) => (
+                        <div className={`
+                        ${styles.slide} 
+                        ${item.id === 0 ? styles.furniture : ''}
+                        ${item.id === 1 ? styles.ad : ''}
+                        ${item.id === 2 ? styles.medical : ''}
                         `}
                             key={item.id}
                         >
