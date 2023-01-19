@@ -94,14 +94,6 @@
         z-index: 2;
         display: none;
       }
-
-      .columnBackground {
-        position: absolute;
-        height: 400vh;
-        width: 100vw;
-        top: -10em;
-        right: 0;
-      }
     }
   }
 
@@ -160,7 +152,13 @@
       .contentColumn2 {
         .columnBackground {
           background-color: white;
+          position: absolute;
+          height: 400vh;
+          width: 100vw;
+          top: -10em;
+          right: 0;
         }
+
         .categories {
           display: flex;
 
