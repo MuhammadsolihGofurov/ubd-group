@@ -12,7 +12,6 @@ import "../styles/globals.scss";
 //layout
 import MainLayout from "../layouts/Main";
 
-
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
 
