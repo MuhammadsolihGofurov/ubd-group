@@ -35,11 +35,17 @@ const CategoryTabs = () => {
                 scale: scaleVal
             });
 
-            ScrollTrigger.matchMedia({
-                "(min-width: 1025px)": () => {
-
-                }
-            })
+            ScrollTrigger.create({
+                trigger: card,
+                start: `top-=${index * spacer} top`,
+                endTrigger: '.cards',
+                end: `bottom top+=${200 + (cards.length * spacer)}`,
+                pin: true,
+                pinSpacing: false,
+                markers: false,
+                id: 'pin',
+                invalidateOnRefresh: true,
+            });
         });
     });
 
