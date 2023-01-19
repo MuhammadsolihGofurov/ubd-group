@@ -12,7 +12,7 @@ const CategoryTabs = () => {
     const categoryTabsRef = useRef(null);
 
     useEffect(() => {
-        gsap.matchMedia().registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollTrigger);
 
         const cards = gsap.utils.toArray(".card");
         const spacer = 20;
